@@ -1,0 +1,15 @@
+
+model:
+  architecture: CNN + LSTM
+  encoder: ResNet18
+  hidden_size: 256
+
+training:
+  epochs: 2
+  learning_rate: 0.0001
+  batch_size: 1
+  training_samples: 500
+
+evaluation:
+  cosine_similarity: 0.7704
+  feature_mse: 0.000000
