@@ -1,0 +1,5 @@
+Metric,Value
+Training Samples,500.0
+Epochs,2.0
+Cosine Similarity,0.9999998146944707
+Feature MSE,2.6963829782817025e-09

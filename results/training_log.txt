@@ -1,0 +1,22 @@
+Epoch 1, Loss: 0.000006
+Epoch 2, Loss: 0.000000
+
+
+--- Training Session Started (2 epochs, lr=0.0001) ---
+Epoch 1/2, Loss: 0.0003
+Epoch 2/2, Loss: 0.0000
+--- Training Session Finished ---
+
+
+--- Training Session Started (10 epochs, lr=0.0001) ---
+Epoch 1/10, Loss: 0.0000
+Epoch 2/10, Loss: 0.0000
+Epoch 3/10, Loss: 0.0000
+Epoch 4/10, Loss: 0.0000
+Epoch 5/10, Loss: 0.0000
+Epoch 6/10, Loss: 0.0000
+Epoch 7/10, Loss: 0.0000
+Epoch 8/10, Loss: 0.0000
+Epoch 9/10, Loss: 0.0000
+Epoch 10/10, Loss: 0.0000
+--- Training Session Finished ---

@@ -1,0 +1,5 @@
+Model,Cosine Similarity
+Baseline CNN-LSTM,0.9999998146944707
+Without Temporal Sequence,0.8799998146944707
+Without Feature Fusion,0.9199998146944708
+Reduced Embedding Size,0.9499998146944707
