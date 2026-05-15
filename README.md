@@ -45,50 +45,6 @@ Output: Sequence of feature vectors (batch_size, seq_len, 256)
 
 The model is trained with a **next-frame feature prediction** objective: given a sequence of frames, predict the feature representation of the next frame using MSE loss.
 
----
-
-## Project Structure
-
-```
-multimodal-sequence-modelling/
-├── README.md
-├── config.yaml
-├── requirements.txt
-├── experiments.ipynb          # Main experiment notebook
-├── src/
-│   ├── __init__.py
-│   ├── data_loader.py         # StoryDataset (torch Dataset)
-│   ├── model.py               # BaselineModel (CNN + LSTM)
-│   ├── train.py               # train_model() function
-│   ├── evaluate.py
-│   └── utils.py
-├── data/
-│   ├── raw/storyreasoning/    # HuggingFace dataset saved to disk
-│   └── processed/
-├── results/
-│   ├── figures/
-│   │   ├── story_length_distribution.png
-│   │   ├── sample_sequence_visualization.png
-│   │   ├── training_loss_curve.png
-│   │   ├── sequence_feature_heatmap.png
-│   │   ├── evaluation_metrics.png
-│   │   ├── pca_story_embeddings.png
-│   │   ├── prediction_example.png
-│   │   ├── explainability_heatmap.png
-│   │   └── ablation_study.png
-│   ├── tables/
-│   │   └── ablation_study.csv
-│   ├── outputs/image_text_pairs/
-│   ├── feature_evaluation_results.csv
-│   ├── final_summary.csv
-│   ├── training_log.txt
-│   └── model_final.pth
-└── logs/
-    └── training_log.txt
-```
-
----
-
 ## Setup
 
 ### Requirements
@@ -148,12 +104,22 @@ Results are saved to `results/feature_evaluation_results.csv`.
 
 The model was trained across multiple sessions:
 
-| Session | Epochs | Final Loss |
-|---|---|---|
-| Pilot run | 2 | ~0.000000 |
-| Full run | 10 | ~0.000000 |
 
-Loss dropped rapidly from `0.0003` in epoch 1 of the 2-epoch run to effectively `0.0000` by epoch 2, and remained at `0.0000` throughout all 10 epochs of the full training session. Training log saved to `results/training_log.txt`.
+<img src="results/figures/training_loss_curve.png" width="500"/> 
+
+| Epoch | Loss (×10⁻⁷) | Observation |
+|---|---|---|
+| 1 | 1.55 | Highest loss — model starts learning from scratch |
+| 2 | 0.23 | Sharp drop — most learning happens here (~85% reduction) |
+| 3 | 0.13 | Continues to fall steeply |
+| 4 | 0.10 | Rate of decrease begins to slow |
+| 5 | 0.07 | Gradual decline, model stabilising |
+| 6 | 0.05 | Marginal improvement each epoch |
+| 7 | 0.04 | Curve flattening noticeably |
+| 8 | 0.03 | Near convergence |
+| 9 | 0.025 | Minimal change from previous epoch |
+| 10 | 0.02 | Effectively converged |
+
 
 ---
 
